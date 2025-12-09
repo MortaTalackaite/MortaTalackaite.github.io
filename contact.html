@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Personal
@@ -88,7 +89,7 @@
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Contact</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <!--<p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>-->
             </div>
           </div>
         </div>
@@ -158,39 +159,101 @@
 
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+        <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
           <div class="row gy-4">
 
             <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+              <input type="text" name="vardas" class="form-control" placeholder="Vardas" required="">
+              <div class="error-text"></div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" name="pavarde" class="form-control" placeholder="Pavardė" required="">
+              <div class="error-text"></div>
             </div>
 
             <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              <input type="email" class="form-control" name="email" placeholder="El. paštas" required="">
+              <div class="error-text"></div>
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+              <input type="text" class="form-control" name="telefonas" placeholder="Telefono numeris" required="">
+              <div class="error-text"></div>
             </div>
 
             <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+              <input type="text" class="form-control" name="adresas" placeholder="Adresas" required=""></input>
+              <div class="error-text"></div>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">Klausimas 1 (1–10)</label>
+              <input type="range" name="klausimas1" min="1" max="10" value="5" class="form-range">
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">Klausimas 2 (1–10)</label>
+              <input type="range" name="klausimas2" min="1" max="10" value="5" class="form-range">
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">Klausimas 3 (1–10)</label>
+              <input type="range" name="klausimas3" min="1" max="10" value="5" class="form-range">
             </div>
 
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">Jūsų žinutė išsiųsta. Ačiū!</div>
 
-              <button type="submit">Send Message</button>
+              <button type="submit" id="submit-btn" disabled>Siųsti</button>
             </div>
 
           </div>
         </form><!-- End Contact Form -->
 
+        <div id="success-popup" class="success-popup">Duomenys pateikti sėkmingai!</div>
+
+        <div id="form-results" class="mt-4 p-3" style="background:#f6f6f6; border-radius:6px; display:none;">
+          <h5>Įvesti duomenys:</h5>
+          <div id="results-content"></div>
+        </div>
+
       </div>
 
     </section><!-- /Contact Section -->
+
+    <section id="flip-card" class="memory-section mt-5">
+      <div class="container">
+
+        <h2 class="pavadinimas">Mano Žaidimas</h2>
+
+        <div class="sudetingumas">
+          <label>Pasirinkite sudėtingumą:</label>
+          <select id="sudetingumas">
+            <option value="easy">Lengvas (4×3)</option>
+            <option value="hard">Sunkus (6×4)</option>
+          </select>
+        </div>
+
+        <div class="game-stats">
+          <p>Ėjimai: <span id="ejimai">0</span></p>
+          <p>Rastos poros: <span id="poros">0</span></p>
+          <p>Laikas: <span id="laikas">0</span> s</p>
+          <p>Geriausias rezultatas: <span id="geriausias">-</span></p>
+        </div>
+
+        <div class="game-buttons">
+          <button id="startGame">Start</button>
+          <button id="restartGame">Atnaujinti</button>
+        </div>
+
+        <div id="gameBoard" class="game-board"></div>
+
+        <div id="winMessage" class="win-message"></div>
+      </div>
+    </section>
 
   </main>
 
@@ -228,7 +291,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -240,6 +303,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
